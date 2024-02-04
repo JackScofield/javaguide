@@ -181,15 +181,114 @@ HashSet use HashMap to implement.
 
 
 
+#### HashSet how to check repeat element
+
+When add something in hashset, 
+
+* compute hashcode for the element, if no same hashcode, then assume element is not repeated
+* if has the same hashcode, then use the `equals()` method to check if they are the same
 
 
-尊敬阿里云领导：您好！我是浦泽元。我硕士毕业于约翰霍普金斯大学，专业是计算机科学；本科就读于伦斯勒理工学院，修数学和计算机双学位。我在本科和研究生期间也有着多年课上课后的软件开发经验，得知阿里云在西雅图的software engineer职位后（Software Engineer-Seattle Alibaba Cloud · Seattle, WA）,我十分渴望能加入阿里云这个团队。阿里云作为国内最知名的云计算服务商，在世界范围有更大的发展也是令人备受鼓舞。我在20年回国实习期间用过阿里云的ECS，操作易上手体验良好，十分期待能在北美aws，gcp，azure三足鼎立的局面下，看到阿里云的市场。
 
-根据在LinkedIn上的岗位需求，所需技能包括network programming, multi-thread programming，c/c++和python等脚本语言。我在JHU上过两门计算机网络相关的课程，上过一门parallel computing, 对岗位所需知识也算是有理论储备和一些实习经验。此外对于一些开源系统如Hadoop, k8s, Cassandra 也有一些涉猎，虽然仅仅是皮毛但也对此充满好奇，也享受学习和开源的过程。我愿意保持努力，虚心学习，融入团队，为了阿里云在世界范围的更好发展贡献自己的一份力量。
+#### HashMap implementation
 
-我相信一定有大量的跟我一样想法的中国留学生向往阿里里云，所以特别感谢阿里云领导的推荐，让我离优秀的团队更近一步，我会尽最大的努力去储备知识、准备面试。再次感谢，祝新年快乐身体健康！  
+![image-20240204160737979](C:\Users\24736\AppData\Roaming\Typora\typora-user-images\image-20240204160737979.png)
 
-浦泽元 2024.2.4
+after jdk 1.8, if the length of list is larger than `8`
+
+* check the size of array is larger than 64:
+  * less than 64, enlarge the size of array
+  * larger than 64, convert the list to red black tree
+
+
+
+#### Why HashMap array size is always a power of 2
+
+After you get the hash number, you need to do a module operation to get the actual index of the array.
+
+If size of the array is `n`, to get the index is `hash % n`
+
+And if n is a power of 2
+
+`hash % n == hash & (n-1)`, more efficient for computing
+
+
+
+#### Iterate a HashMap:
+
+1. ForEach EntrySet:
+
+   ```java
+   Map<Integer, String> map = new HashMap();
+   map.put(1, "Java");
+   map.put(2, "JDK");
+   map.put(3, "Spring Framework");
+   map.put(4, "MyBatis framework");
+   for (Map.Entry<Integer, String> entry : map.entrySet()) {
+       System.out.println(entry.getKey());
+       System.out.println(entry.getValue());
+   }    
+   ```
+
+2. ForEach KeySet:
+
+   ```java
+   Map<Integer, String> map = new HashMap();
+   map.put(1, "Java");
+   map.put(2, "JDK");
+   map.put(3, "Spring Framework");
+   map.put(4, "MyBatis framework");
+   
+   for (Integer key : map.keySet()) {
+       System.out.println(key);
+       System.out.println(map.get(key));
+   }
+   ```
+
+3. stream api
+4. lambda
+
+
+
+For all methods: `entrySet()` has the best performance
+
+
+
+#### ConcurrentHashMap:
+
+thread safe
+
+![](pictures\concurrenthashmap1.png)
+
+after jdk 1.8:
+
+only synchronized the first node of the list or the root of the tree, if no hash collision, won't influence other read and write on other list or tree.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
