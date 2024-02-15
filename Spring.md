@@ -125,17 +125,142 @@ In spring, `@Autowired` annotation is used to auto-wired Spring beans into other
 
 When place `@Autowired` annotation on a field, constructor or method,
 
+1. **By Type:** Spring first tries to find a matching bean in the application context by type. If it finds exactly one match, it wires that bean in.
+2. **By Qualifier**: If there are multiple beans of the same type, Spring then tries to narrow down the beans by using the `@Qualifier` annotation, if specified.
+3. **By Name**: If a `@Qualifier` isn’t specified, Spring checks if any of the beans’ names match the name of the member variable that the `@Autowired` annotation is applied to.
+
+
+
+#### field injection(not recommend)
+
+`@Autowired` can be applied to field (instance variables)
+
+
+
+#### Constructor injection
+
+```java
+@Service
+public class SampleService {
+
+    private final UserRepository userRepository;
+
+    @Autowired
+    public SampleService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public void doSomething() {
+        userRepository.doSomething();
+    }
+}
+```
+
+
+
+#### Setter method injection
+
+old method, constructor injection is preferred.
+
+
+
+* Field injection does not allow to to handle the absence of a bean definition gracefully, application will not start.
+* Using autowired can make it hard to understand how the application is wired together, using explicit writing in config might be good
 
 
 
 
 
+#### Multiple Beans same type
+
+##### Use `@Qualifier`
+
+```java
+@Service
+public class TransportService {
+
+    private Vehicle vehicle;
+
+    @Autowired
+    @Qualifier("car")
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void startJourney() {
+        vehicle.drive();
+    }
+}
+```
+
+```java
+@Component("car")
+public class Car implement Vehicle{
+  
+}
+```
+
+
+
+#### Use required Attribuye
+
+```java
+@Service
+public class SampleService {
+
+    @Autowired(required = false)
+    private UserRepository userRepository;
+
+    public void doSomething() {
+        if (userRepository != null) {
+            userRepository.doSomething();
+        }
+    }
+}
+```
+
+
+
+#### @Autowired and @Resource
+
+* @Autowired is spring annotation, @Resource is JDK annotation
+* @Autowired used byType as default, @Resource uses byName as default
+* @Autowired use @Qualifier to search by name 
 
 
 
 
 
+### Bean scope
 
+* **singleton**: only one instant of bean in IoC container
+* **prototype**: every get will create a new bean instance
+
+
+
+Set bean scope:
+
+* XML
+
+* Annotation
+
+  ```java
+  @Bean
+  @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+  public Person personProtopyte(){
+    return new Person();
+  }
+  ```
+
+  
+
+
+
+### Spring AOP
+
+Encapsulating common logic (session, log, access control)
+
+AspectJ
 
 
 
