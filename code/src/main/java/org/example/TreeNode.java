@@ -1,3 +1,5 @@
+package org.example;
+
 public class TreeNode {
     public int key;
     public TreeNode left;
