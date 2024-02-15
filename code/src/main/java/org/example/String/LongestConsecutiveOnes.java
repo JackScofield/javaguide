@@ -1,4 +1,4 @@
-package String;
+package org.example.String;
 
 public class LongestConsecutiveOnes {
     public static int longestConsecutiveOnes(int[] nums, int k) {

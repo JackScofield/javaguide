@@ -1,4 +1,4 @@
-package CrossTraining;
+package org.example.CrossTraining;
 
 public class RemoveAdjacentRepeatedCharactersIV {
     public static String deDup(String input) {

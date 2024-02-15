@@ -1,4 +1,4 @@
-package CrossTraining;
+package org.example.CrossTraining;
 
 import java.util.*;
 

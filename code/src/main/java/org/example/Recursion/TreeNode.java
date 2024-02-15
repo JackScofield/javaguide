@@ -1,4 +1,4 @@
-package Recursion;
+package org.example.Recursion;
 
 public class TreeNode {
     public int key;

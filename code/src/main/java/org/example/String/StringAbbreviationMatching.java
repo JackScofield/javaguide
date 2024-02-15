@@ -1,4 +1,4 @@
-package String;
+package org.example.String;
 
 public class StringAbbreviationMatching {
     public static boolean match(String input, String pattern) {

@@ -1,4 +1,4 @@
-package review;
+package org.example.review;
 
 public class RotateMatrix {
     public void rotate(int[][] matrix) {

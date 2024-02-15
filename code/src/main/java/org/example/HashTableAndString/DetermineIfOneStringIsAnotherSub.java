@@ -1,4 +1,4 @@
-package HashTableAndString;
+package org.example.HashTableAndString;
 
 public class DetermineIfOneStringIsAnotherSub {
     public int strstr(String large, String small) {

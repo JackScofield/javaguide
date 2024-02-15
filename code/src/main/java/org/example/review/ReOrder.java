@@ -1,4 +1,4 @@
-package review;
+package org.example.review;
 
 public class ReOrder {
     public int[] reorder(int[] array) {

@@ -1,4 +1,4 @@
-package Recursion;
+package org.example.Recursion;
 
 public class LowestAncestor {
     public static TreeNode lowestCommonAncestor(TreeNode root,

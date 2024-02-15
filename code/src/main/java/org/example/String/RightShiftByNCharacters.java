@@ -1,4 +1,4 @@
-package String;
+package org.example.String;
 
 public class RightShiftByNCharacters {
     public static String rightShift(String input, int n) {

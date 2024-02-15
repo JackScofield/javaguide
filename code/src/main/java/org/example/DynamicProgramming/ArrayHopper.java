@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package org.example.DynamicProgramming;
 
 public class ArrayHopper {
     public static int minJump(int[] array) {
