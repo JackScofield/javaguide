@@ -245,7 +245,7 @@ Set bean scope:
 * Annotation
 
   ```java
-  @Bean
+import laicode.Person;   @Bean
   @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
   public Person personProtopyte(){
     return new Person();

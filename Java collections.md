@@ -138,7 +138,7 @@ public static int[] copyOf(int[] original, int newLength) {
 * comparable interface from java.lang. it has a method `compareTo(Object obj)` to sort. A class needs to implement `comparable`
 
   ```java
-  class Person implements Comparable<Person>
+  class laicode.Person implements Comparable<laicode.Person>
   ```
 
 * `comparator` interface is from `java.util` , it has a method `int compare(Object o1, Obejct o2)`
