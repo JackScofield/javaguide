@@ -1,6 +1,8 @@
-package laicode.sort;
+package laicode.Sort;
 
 import java.util.Random;
+
+import static laicode.Sort.Utils.*;
 
 public class QuickSort {
 
@@ -37,23 +39,11 @@ public class QuickSort {
         return lp;
     }
 
-    private static void swap(int[] array, int left, int right){
-        int tmp = array[right];
-        array[right] = array[left];
-        array[left] = tmp;
-    }
-    private static void printArray(int[] numbers){
-        for(int i = 0;i<numbers.length-1;i++){
-            System.out.print(numbers[i] + " ");
-        }
-        System.out.print(numbers[numbers.length-1] + "\n");
-    }
+
     public static void main(String[] args){
-        Random rand = new Random();
-        int[] numbers = new int[10];
-        for(int i = 0;i<numbers.length;i++){
-            numbers[i] = rand.nextInt(100);
-        }
+
+        int[] numbers = Utils.getNumbers(100);
+
         System.out.println("Before");
         printArray(numbers);
         quickSort(numbers);

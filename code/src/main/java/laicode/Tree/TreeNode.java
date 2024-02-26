@@ -1,4 +1,4 @@
-package laicode;
+package laicode.Tree;
 
 public class TreeNode {
     public int key;
