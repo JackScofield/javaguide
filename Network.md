@@ -32,7 +32,7 @@
 
 4 goodbye
 
-![](.\pictures\tcp2.png)
+![tcp2](.\pictures\tcp2.png)
 
 ### [为什么要四次挥手？](#为什么要四次挥手)
 
