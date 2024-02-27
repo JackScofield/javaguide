@@ -1,14 +1,12 @@
-
 package laicode;
 import java.util.*;
-
 
 public class LRU {
     // Hash map to store the cache data
     // key as Integer and Value as String
-    HashMap<Integer, String> data = new HashMap<Integer, String>();
+    HashMap<Integer, String> data = new HashMap<>();
     // Linked list to store the order of cache access
-    LinkedList<Integer> order = new LinkedList<Integer>();
+    LinkedList<Integer> order = new LinkedList<>();
     // size of the cache
     int capacity;
 
@@ -22,7 +20,7 @@ public class LRU {
         // Check if the cache is full by comparing the size of the list with capacity
         if (order.size() >= capacity) {
             // if the cache is full, then remove the last element from the order list and
-            // also from the data
+            // also from the data,
             // so we will get room for new cache
             int keyRemoved = order.removeLast(); // remove from order
             data.remove(keyRemoved);// remove from data
