@@ -364,6 +364,9 @@ finally may not be executed, if jvm terminated, thread close
 
 #### Java reflection
 
+.getClass()
+
+Spring use reflection to do IoC stuff
 
 
 
@@ -371,8 +374,37 @@ finally may not be executed, if jvm terminated, thread close
 
 
 
+#### Java IO and NIO
+
+byte stream:
+
+InputStream and OutputStream
 
 
+
+character stream: 
+
+Reader and Writer
+
+
+
+##### Design pattern
+
+Decorator mode
+
+adapter mode
+
+factory mode
+
+observer mode
+
+
+
+**BIO**
+
+blocking IO, once start read, application will be blocked
+
+**NIO**
 
 
 
