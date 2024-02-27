@@ -43,7 +43,7 @@ Node type:
 * Candidate
 * Follower
 
-![](E:\JHU\job\javaguide\pictures\raft1.png)
+![](.\pictures\raft1.png)
 
 Term:
 
